@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="oss_backstage:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="extjs-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="oss_backstage:war exploded" />
+    </root>
+  </artifact>
+</component>
