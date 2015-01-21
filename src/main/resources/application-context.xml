@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-3.2.xsd
+          http://www.springframework.org/schema/aop
+          http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"
+       default-autowire="byName">
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+
+    <bean id="dataSource" destroy-method="close"
+          class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="validationQuery" value="select 1"></property>
+        <property name="initialSize" value="10"/>
+        <!--maxActive: 最大连接数量 0代表无限制-->
+        <property name="maxActive" value="2000"/>
+        <!--maxIdle: 最大空闲连接-->
+        <property name="maxIdle" value="200"/>
+        <!--minIdle: 最小空闲连接-->
+        <property name="minIdle" value="5"/>
+
+        <property name="testWhileIdle" value="true"/>
+        <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->
+        <property name="maxWait" value="1000"/>
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.EhCacheRegionFactory</prop>
+                <prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.use_structured_entries">true</prop>
+                <prop key="hibernate.cache.provider_configuration_file_resource_path">WEB-INF/classes/ehcache.xml</prop>
+                <prop key="hibernate.current_session_context_class">
+                    org.springframework.orm.hibernate4.SpringSessionContext
+                </prop>
+            </props>
+        </property>
+        <property name="packagesToScan">
+            <list>
+                <value>com.shinowit.entity</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <context:component-scan base-package="com.shinowit">
+    </context:component-scan>
+
+    <!--log4jdbc-->
+    <bean id="log4jdbcInterceptor" class="net.sf.log4jdbc.DataSourceSpyInterceptor"/>
+    <bean id="dataSourceLog4jdbcAutoProxyCreator"
+          class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="interceptorNames">
+            <list>
+                <value>log4jdbcInterceptor</value>
+            </list>
+        </property>
+        <property name="beanNames">
+            <list>
+                <value>dataSource</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <tx:attributes>
+    <tx:method name="get*" read-only="true" propagation="REQUIRED" />
+    <tx:method name="find*" read-only="true" propagation="REQUIRED" />
+    <tx:method name="query*" read-only="true" propagation="REQUIRED" />
+    <tx:method name="list*" read-only="true" propagation="REQUIRED" />
+    <tx:method name="isExist*" read-only="true" propagation="REQUIRED" />
+    <tx:method name="insert*" propagation="REQUIRED" />
+    <tx:method name="update*" propagation="REQUIRED" />
+    <tx:method name="create*" propagation="REQUIRED" />
+    <tx:method name="del*" propagation="REQUIRED" />
+    <tx:method name="save*" propagation="REQUIRED" />
+    <tx:method name="*" propagation="REQUIRED" />
+    </tx:attributes>
+    </tx:advice>
+
+     <aop:config>
+    <aop:pointcut expression="execution(* com.shinowit.framework.dao..*.*(..))"
+    id="bussinessService" />
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="bussinessService" />
+    </aop:config>
+
+    <aop:config>
+    <aop:pointcut expression="execution(* com.shinowit.dao..*.*(..))"
+    id="bussinessService1" />
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="bussinessService1" />
+    </aop:config>
+     -->
+</beans>

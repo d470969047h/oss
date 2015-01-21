@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="unitInfo" extends="struts-default,json-default" namespace="/">
+        <!--unitInfo单位管理-->
+        <action name="unitInfoPaging" class="com.shinowit.actions.UnitInfoAction.UnitInfoPagingAction" method="queryUnitInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*myMeMerchandiseInfosByUnitId,
+                    .*myMeOrderDetailsInfosByUnitId,
+                </param>
+            </result>
+        </action>
+        <!--unitInfo添加单位-->
+        <action name="AddUnitInfo" class="com.shinowit.actions.UnitInfoAction.UnitInfoAddAction" method="addUnitInfo">
+            <result type="json"></result>
+        </action>
+        <!--unitInfo修改单位-->
+        <action name="UpdateUnitInfo" class="com.shinowit.actions.UnitInfoAction.UnitInfoUpdateAction" method="updateUnitInfo">
+            <result type="json"></result>
+        </action>
+        <!--unitInfo删除单个单位-->
+        <action name="DeleteUnifInfo" class="com.shinowit.actions.UnitInfoAction.UnitInfoDeleteAction" method="deleteUnitInfo">
+            <result type="json"></result>
+        </action>
+        <!--unitInfo删除多个单位-->
+        <action name="DeleteManyUnitInfo" class="com.shinowit.actions.UnitInfoAction.UnitInfoDeleteAction" method="deleteManyUnitInfo">
+            <result type="json"></result>
+        </action>
+    </package>
+</struts>

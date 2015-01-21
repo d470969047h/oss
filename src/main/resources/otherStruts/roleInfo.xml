@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="roleInfo" extends="MyInterceptor" namespace="/">
+        <!--unitInfo单位管理-->
+        <action name="roleInfoPaging" class="com.shinowit.actions.RoleInfoAction.RoleInfoPagingAction" method="roliInfoQuery">
+            <result type="json">
+            </result>
+        </action>
+
+        <!--权限tree-->
+        <action name="checkTreeInfo" class="com.shinowit.actions.RoleInfoAction.CheckTreeInfoAction" method="queryCheckTreeInfo">
+            <result type="json">
+            </result>
+        </action>
+
+        <!--添加角色-->
+        <action name="addRoleInfo" class="com.shinowit.actions.RoleInfoAction.RoleInfoAddAction" method="addRoleInfo">
+            <result type="json">
+            </result>
+        </action>
+
+        <!--查询角色管理右边权限展示的树的menuId-->
+        <action name="roleIDInfoquery" class="com.shinowit.actions.RoleInfoAction.RoleInfoIDQueryAction" method="queryRoleInfoID">
+            <result type="json">
+            </result>
+        </action>
+
+        <!--角色管理__修改角色信息-->
+        <action name="updateRoleInfo" class="com.shinowit.actions.RoleInfoAction.RoleInfoUpdateAction" method="updateRoleInfo">
+            <result type="json">
+            </result>
+        </action>
+
+        <!--角色管理__删除角色信息-->
+        <action name="deleteRoleInfo" class="com.shinowit.actions.RoleInfoAction.RoleInfoDeleteAction" method="delRoleInfo">
+            <result type="json"></result>
+        </action>
+
+
+    </package>
+</struts>

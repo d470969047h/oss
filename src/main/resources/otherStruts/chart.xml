@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="chart" extends="struts-default,json-default" namespace="/">
+        <!--入库查询统计图_line-rich（Pie）-->
+        <action name="instockChartQuery" class="com.shinowit.actions.ChartAction.InStockChartAction" method="instockChart">
+            <result type="json">
+                <param name="excludeProperties">
+                    inStockChartList.*.remark,
+                    inStockChartList.*.handler,
+                    inStockChartList.*.inType,
+                    inStockChartList.*.billCode,
+                    inStockChartList.*.id,
+                    inStockChartList.*.myMeInStockDetailsInfosByBillCode,
+                    inStockChartList.*.myAuOperInfoByOperId,
+                    inStockChartList.*.myBaSupplierInfoBySupplierId
+                </param>
+            </result>
+        </action>
+
+        <!--入库查询统计图_折线图上的明细部分-->
+        <action name="instockDetailsQuery" class="com.shinowit.actions.ChartAction.InStockDetailChartAction" method="instockDetailesChart">
+            <result type="json"></result>
+        </action>
+
+        <!--出库查询统计图_line-rich-->
+        <action name="outstockChartQuery" class="com.shinowit.actions.ChartAction.OutStockChartAction" method="outstockChart">
+            <result type="json">
+                <param name="excludeProperties">
+                    outStockChartList.*.id,
+                    outStockChartList.*.outBillCode,
+                    outStockChartList.*.handler,
+                    outStockChartList.*.outType,
+                    outStockChartList.*.remark,
+                    outStockChartList.*.myMeOrderInfosByOutBillCode,
+                    outStockChartList.*.myMeOutStockDetailsInfosByOutBillCode,
+                    outStockChartList.*.myAuOperInfoByOperId
+                </param>
+            </result>
+        </action>
+
+        <!--出库查询统计图_折线图上的明细部分-->
+        <action name="outstockDetailsQuery" class="com.shinowit.actions.ChartAction.OutStockDetailChartAction" method="outstockDetailesChart">
+            <result type="json"></result>
+        </action>
+
+        <!--库存信息统计图-->
+        <action name="stockInfoChart" class="com.shinowit.actions.ChartAction.StockInfoChartAction" method="stockInfoChart">
+            <result type="json">
+            </result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="inStock" extends="MyInterceptor" namespace="/">
+        <!--入库查询~~主表-->
+        <action name="inStockPaging" class="com.shinowit.actions.inStockAction.InStockPagingAction" method="queryInStockInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    inStockList.*.myMeInStockDetailsInfosByBillCode,
+                    inStockList.*.myAuRoleInfoByRoleId,
+                    inStockList.*.myBaLogInfosByOperId,
+                    inStockList.*.myMeInStockInfosByOperId,
+                    inStockList.*.myMeOrderInfosByOperId,
+                    inStockList.*.myMeOutStockInfosByOperId,
+                    inStockList.*.myMeInStockInfosBySupplierId
+                </param>
+            </result>
+        </action>
+
+        <!--入库查询~~从表-->
+        <action name="inStockDetailsPaging" class="com.shinowit.actions.inStockAction.InStockDetailsPagingAction" method="queryInStockDetailsInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    inStockDetailsList.*.myMeMerchandiseCInfoByMerchandiseCid,
+                    inStockDetailsList.*.myMeProStatusInfoByProStatusId,
+                    inStockDetailsList.*.myMeUnitInfoByUnitId,
+                    inStockDetailsList.*.myMeInStockDetailsInfosByBillCode,
+                    inStockDetailsList.*.myAuOperInfoByOperId,
+                    inStockDetailsList.*.myBaSupplierInfoBySupplierId
+                </param>
+            </result>
+        </action>
+
+        <!--入库-->
+        <action name="inStock" class="com.shinowit.actions.inStockAction.InStockAction" method="Instock">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*myMeInStockInfoByBillCode
+                </param>
+            </result>
+        </action>
+
+        <!--入库查询的删除-->
+        <action name="inStockInfoDelete" class="com.shinowit.actions.inStockAction.InStockDeleteAction" method="inStockDelete">
+            <result type="json"></result>
+        </action>
+
+        <!--入库查询的修改-->
+        <action name="inStockInfoUpdate" class="com.shinowit.actions.inStockAction.InStockUpdateAction" method="updateInStockInfo">
+            <result type="json"></result>
+        </action>
+    </package>
+</struts>

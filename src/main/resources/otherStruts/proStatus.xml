@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="proStatus" extends="struts-default,json-default" namespace="/">
+        <!--proStatus促销状态管理-->
+        <action name="proStatus" class="com.shinowit.actions.ProStatusAction.ProStatusPagingAction" method="queryProS">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*myMeMerchandiseInfosByProStatusId
+                </param>
+            </result>
+        </action>
+        <!--proStatus添加促销状态-->
+        <action name="AddProStatus" class="com.shinowit.actions.ProStatusAction.ProStatusAddAction" method="addProStatus">
+            <result type="json"></result>
+        </action>
+        <!--proStatus修改促销状态-->
+        <action name="UpdateProStatus" class="com.shinowit.actions.ProStatusAction.ProStatusUpdateAction" method="updateProS">
+            <result type="json"></result>
+        </action>
+        <!--proStatus删除单个促销状态-->
+        <action name="DeleteProStatus" class="com.shinowit.actions.ProStatusAction.ProStatusDeleteAction" method="deleteProS">
+            <result type="json"></result>
+        </action>
+        <!--proStatus删除多个促销状态-->
+        <action name="DeleteManyProStatus" class="com.shinowit.actions.ProStatusAction.ProStatusDeleteAction" method="deleteManyProS">
+            <result type="json"></result>
+        </action>
+    </package>
+</struts>

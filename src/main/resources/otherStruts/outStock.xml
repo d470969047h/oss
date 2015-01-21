@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="outStock" extends="MyInterceptor" namespace="/">
+        <!--出库分页-->
+        <action name="outStockPaging" class="com.shinowit.actions.OutStockAction.OutStockPagingAction"
+                method="queryOutStockInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    outStockList.*.myMeInStockDetailsInfosByBillCode
+                </param>
+            </result>
+        </action>
+
+        <!--出库明细查询-->
+        <action name="outStockQuery" class="com.shinowit.actions.OutStockAction.OutStockInfoDetailsQueryAction"
+                method="queryStockInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    stockInfoList.*.myMeInStockDetailsInfosByMerchandiseId,
+                    stockInfoList.*.myMeMerchandiseCInfoByMerchandiseCid,
+                    stockInfoList.*.myMeProStatusInfoByProStatusId,
+                    stockInfoList.*.myMeUnitInfoByUnitId,
+                    stockInfoList.*.myMeOrderDetailsInfosByMerchandiseId,
+                    stockInfoList.*.myMeOutStockDetailsInfosByMerchandiseId,
+                    stockInfoList.*.myMeStockInfosByMerchandiseId
+                </param>
+            </result>
+        </action>
+
+        <!--出库-->
+        <action name="outStock" class="com.shinowit.actions.OutStockAction.OutStockAction" method="outStock">
+            <result type="json">
+            </result>
+        </action>
+
+        <!--merchandiseInfo商品信息分页-->
+        <action name="inStock" class="com.shinowit.actions.inStockAction.InStockAction" method="Instock">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*.myMeInStockInfoByBillCode
+                </param>
+            </result>
+        </action>
+
+        <!--出库明细查询-->
+        <action name="outStockDetailsInfoQuery" class="com.shinowit.actions.OutStockAction.OutStockDetailsInfoQuery"
+                method="queryStockDetailsInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    outStockInfoDetailsList.*.myMeOrderInfosByOutBillCode,
+                    outStockInfoDetailsList.*.myMeOutStockDetailsInfosByOutBillCode,
+                    outStockInfoDetailsList.*.myAuOperInfoByOperId,
+                    outStockInfoDetailsList.*.myMeMerchandiseCInfoByMerchandiseCid,
+                    outStockInfoDetailsList.*.myMeProStatusInfoByProStatusId,
+                    outStockInfoDetailsList.*.myMeUnitInfoByUnitId
+                </param>
+            </result>
+        </action>
+
+        <!--出库信息修改-->
+        <action name="outStockInfoUpdate" class="com.shinowit.actions.OutStockAction.OutStockInfoUpdateAction"
+                method="updateOutStockDetailsInfo">
+            <result type="json">
+
+            </result>
+        </action>
+
+        <!--出库信息删除-->
+        <action name="outStockInfoDelete" class="com.shinowit.actions.OutStockAction.OutStockInfoDeleteAction"
+                method="outStockInfoDelete">
+            <result type="json">
+
+            </result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="mylogin" extends="struts-default,json-default" namespace="/">
+        <!--登陆login-->
+        <action name="mylogin" class="com.shinowit.actions.LoginAction" method="mylogin">
+            <result>/WEB-INF/views/login.jsp</result>
+        </action>
+        <!--由login到main-->
+        <action name="login" class="com.shinowit.actions.LoginAction" method="login">
+            <result name="ok" type="json">
+                <param name="excludeProperties">
+                    operList.*.myAuRoleInfoByRoleId,
+                    operList.*.myBaLogInfosByOperId,
+                    operList.*.myMeInStockInfosByOperId,
+                    operList.*.myMeOrderInfosByOperId,
+                    operList.*.myMeOutStockInfosByOperId
+                </param>
+            </result>
+        </action>
+    </package>
+</struts>

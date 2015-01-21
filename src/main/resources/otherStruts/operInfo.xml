@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="operInfo" extends="struts-default,json-default" namespace="/">
+        <!--operInfo操作员信息分页-->
+        <action name="operPagingInfo" class="com.shinowit.actions.OperInfoAction.OperPagingInfoAction" method="queryOperInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    operInfoList.*.myAuRoleInfoByRoleId,
+                </param>
+            </result>
+        </action>
+
+        <!--用户管理_用户角色的tree-->
+        <action name="roleInfoQuery" class="com.shinowit.actions.OperInfoAction.RoleInfoQueryForTreeAction" method="queryRoleForTree">
+            <result type="json"></result>
+        </action>
+
+        <!--用户管理_传RoleID查两个list-->
+        <action name="operInfoQueryById" class="com.shinowit.actions.OperInfoAction.CheckTreeInfoQueryAction" method="checkTreeInfoQuery">
+            <result type="json"></result>
+        </action>
+
+        <!--用户管理_用户角色combobox-->
+        <action name="RoleComInfo" class="com.shinowit.actions.OperInfoAction.RoleComboInfoAction" method="queryRoleComInfo">
+            <result type="json"></result>
+        </action>
+
+        <!--用户管理_用户添加-->
+        <action name="addOperInfo" class="com.shinowit.actions.OperInfoAction.OperInfoAddAction" method="addOperInfo">
+            <result type="json"></result>
+        </action>
+
+        <!--用户管理_用户修改-->
+        <action name="updateOperInfo" class="com.shinowit.actions.OperInfoAction.OperInfoUpdateAction" method="updateOperInfo">
+            <result type="json"></result>
+        </action>
+
+        <!--用户管理_用户删除-->
+        <action name="deleteOperInfo" class="com.shinowit.actions.OperInfoAction.OperInfoDeleteAction" method="deleteOperInfo">
+            <result type="json"></result>
+        </action>
+    </package>
+</struts>

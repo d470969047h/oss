@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false"/>
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.custom.i18n.resources" value="globalMessages"/>
+
+    <package name="default" extends="struts-default,json-default" namespace="/">
+    </package>
+    <!--拦截器-->
+    <include file="otherStruts/Interceptor.xml"></include>
+    <!--登陆login-->
+    <include file="otherStruts/login.xml"></include>
+    <!--主页main-->
+    <include file="otherStruts/main.xml"></include>
+    <!--注销layout-->
+    <include file="otherStruts/layout.xml"></include>
+    <!--供货商信息-->
+    <include file="otherStruts/Supplier.xml"></include>
+    <!--商品分类信息-->
+    <include file="otherStruts/merchandiseClass.xml"></include>
+    <!--促销状态信息-->
+    <include file="otherStruts/proStatus.xml"></include>
+    <!--单位信息-->
+    <include file="otherStruts/unitInfo.xml"></include>
+    <!--商品信息-->
+    <include file="otherStruts/merchandiseInfo.xml"></include>
+    <!--操作员信息-->
+    <include file="otherStruts/operInfo.xml"></include>
+    <!--入库操作-->
+    <include file="otherStruts/inStock.xml"></include>
+    <!--左边的tree-->
+    <include file="otherStruts/menuInfo.xml"></include>
+    <!--库存信息查看-->
+    <include file="otherStruts/stockInfo.xml"></include>
+    <!--库存信息查看及出库操作-->
+    <include file="otherStruts/outStock.xml"></include>
+    <!--角色管理-->
+    <include file="otherStruts/roleInfo.xml"></include>
+    <!--统计图-->
+    <include file="otherStruts/chart.xml"></include>
+</struts>

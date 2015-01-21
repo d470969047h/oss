@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="stockInfo" extends="struts-default,json-default" namespace="/">
+        <!--stockInfo库存信息查看-->
+        <action name="stockInfoQuery" class="com.shinowit.actions.StockAction.StockInfoAction" method="stockInfoQuery">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*hibernateLazyInitalizer,
+                    .*handler,
+                    .*myMeInStockDetailsInfosByMerchandiseId,
+                    .*myMeProStatusInfoByProStatusId,
+                    .*myMeOrderDetailsInfosByMerchandiseId,
+                    .*myMeOutStockDetailsInfosByMerchandiseId,
+                    .*myMeStockInfosByMerchandiseId,
+                    .*myMeMerchandiseInfosByMerchandiseCid,
+                    .*myMeMerchandiseInfosByUnitId,
+                    .*myMeOrderDetailsInfosByUnitId
+                </param>
+            </result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="merchandiseInfo" extends="struts-default,json-default" namespace="/">
+        <!--merchandiseInfo商品信息分页-->
+        <action name="merchandiseInfo" class="com.shinowit.actions.MerchandiseInfoAction.MerchandiseInfoPagingAction" method="queryMerInfo">
+            <result type="json">
+                <param name="excludeProperties">
+                    merchandiseInfoList.*.myMeInStockDetailsInfosByMerchandiseId,
+                    merchandiseInfoList.*.myMeOrderDetailsInfosByMerchandiseId,
+                    merchandiseInfoList.*.myMeOutStockDetailsInfosByMerchandiseId,
+                    merchandiseInfoList.*.myMeStockInfosByMerchandiseId,
+                    merchandiseInfoList.*.myMeMerchandiseInfosByMerchandiseCid,
+                    merchandiseInfoList.*.myMeMerchandiseInfosByProStatusId,
+                    merchandiseInfoList.*.myMeMerchandiseInfosByUnitId,
+                    merchandiseInfoList.*.myMeOrderDetailsInfosByUnitId
+                </param>
+            </result>
+        </action>
+        <!--merchandiseInfo添加商品-->
+        <action name="AddMerchandiseInfo" class="com.shinowit.actions.MerchandiseInfoAction.MerchandiseInfoAddAction" method="merAdd">
+            <result type="json"></result>
+        </action>
+        <!--merchandiseInfo修改商品-->
+        <action name="UpdateMerchandiseInfo" class="com.shinowit.actions.MerchandiseInfoAction.MerchandiseInfoUpdateAction" method="updateINFO">
+            <result type="json"></result>
+        </action>
+        <!--merchandiseInfo删除单条商品-->
+        <action name="DeleteMerchandiseInfo" class="com.shinowit.actions.MerchandiseInfoAction.MerchandiseInfoDeleteAction" method="deleteMerInfo">
+            <result type="json"></result>
+        </action>
+        <!--merchandiseInfo删除多条商品-->
+        <action name="DeleteManyMerchandiseInfo" class="com.shinowit.actions.MerchandiseInfoAction.MerchandiseInfoDeleteAction" method="deleteManyMerInfo">
+            <result type="json"></result>
+        </action>
+    </package>
+</struts>

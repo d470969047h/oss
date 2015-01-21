@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="Supplier" extends="struts-default,json-default" namespace="/">
+        <!--Supplier供应商管理-->
+        <action name="Supplier" class="com.shinowit.actions.SupplierAction.SupplierPagingAction" method="querySupplier">
+            <result type="json">
+                <param name="excludeProperties">
+                    supplierList.*.myMeInStockInfosBySupplierId
+                </param>
+            </result>
+        </action>
+        <!--Supplier添加供应商-->
+        <action name="AddSupplier" class="com.shinowit.actions.SupplierAction.SupplierAddAction" method="addSupplier">
+            <result type="json"></result>
+        </action>
+        <!--Supplier修改供应商-->
+        <action name="UpdateSupplier" class="com.shinowit.actions.SupplierAction.SupplierUpdateAction" method="updateSupplier">
+            <result type="json"></result>
+        </action>
+        <!--Supplier删除单个供应商-->
+        <action name="DeleteSupplier" class="com.shinowit.actions.SupplierAction.SupplierDeleteAction" method="deleteSupplier">
+            <result type="json"></result>
+        </action>
+        <!--Supplier删除多个供应商-->
+        <action name="DeleteManySupplier" class="com.shinowit.actions.SupplierAction.SupplierDeleteAction" method="deleteManySupplier">
+            <result type="json"></result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="merchandiseClass" extends="struts-default,json-default" namespace="/">
+        <!--merchandiseClass商品类别-->
+        <action name="merchandiseClass" class="com.shinowit.actions.MerchandiseClassAction.MerchandisePagingClassAction" method="queryMerC">
+            <result type="json">
+                <param name="excludeProperties">
+                    merchandiseCList.*.myMeMerchandiseInfosByMerchandiseCid
+                </param>
+            </result>
+        </action>
+        <!--merchandiseClass添加商品类别-->
+        <action name="AddMerC" class="com.shinowit.actions.MerchandiseClassAction.MerchandiseClassAddAction" method="merCAdd">
+            <result type="json"></result>
+        </action>
+        <!--merchandiseClass修改商品类别-->
+        <action name="UpdateMerC" class="com.shinowit.actions.MerchandiseClassAction.MerchandiseClassUpdateAction" method="updateMerC">
+            <result type="json"></result>
+        </action>
+        <!--merchandiseClass删除单条商品类别-->
+        <action name="DeleteMerC" class="com.shinowit.actions.MerchandiseClassAction.MerchandiseClassDeleteAction" method="deleteMerC">
+            <result type="json"></result>
+        </action>
+        <!--merchandiseClass删除多条商品类别-->
+        <action name="DeleteManyMerC" class="com.shinowit.actions.MerchandiseClassAction.MerchandiseClassDeleteAction" method="deleteManyMerC">
+            <result type="json"></result>
+        </action>
+    </package>
+</struts>

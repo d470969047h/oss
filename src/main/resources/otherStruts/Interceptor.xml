@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="MyInterceptor" extends="struts-default,json-default" namespace="/inter" abstract="true">
+
+        <interceptors><!--定义拦截器-->
+            <interceptor name="loginInterseptor" class="com.shinowit.actions.LoginInterceptor"></interceptor>
+            <!--配置拦截器栈-->
+            <interceptor-stack name="mystack">
+                <interceptor-ref name="json"></interceptor-ref>
+                <interceptor-ref name="loginInterseptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="mystack"></default-interceptor-ref>
+        <global-results>
+            <result name="failed">/WEB-INF/views/login.jsp</result>
+        </global-results>
+    </package>
+
+</struts>
