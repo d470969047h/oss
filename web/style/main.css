@@ -1,0 +1,28 @@
+body {background-color: #3892d3;}
+.part01{ width:90%; height:48px; margin-left: 10px; margin-top: 10px; margin-right: 10px; }
+.part01:hover{ background:#83cbff}
+.part01 img{ width:48px; height:48px; float:left; margin-right: 10px;}
+.con{ width: auto; height:48px; float:left}
+.con span{ font:normal 12px/18px ""; display:block; height:18px}
+.con .con1{ width: auto; height:30px;font-style: italic;color:red;}
+
+.logo{background: url("/images/logo.png");}
+.sockt{background: url("/images/sockt.png");}
+.buy{background: url("/images/buy.png");}
+.buy1{background: url("/images/buy1.png");}
+.sell{background: url("/images/sell.png");}
+.baobiao{background: url("/images/baobiao.png");}
+.money{background: url("/images/money.png");}
+
+
+.seting{background: url("/images/seting.png");}
+.center1{background: url("/images/center1.png");}
+.center2{background: url("/images/center2.png");}
+.center3{background: url("/images/center3.png");}
+.center4{background: url("/images/center4.png");}
+.center5{background: url("/images/center5.png");}
+.center6{background: url("/images/center6.png");}
+.center7{background: url("/images/center7.png");}
+.center8{background: url("/images/center8.png");}
+
+.upload-icon{background: url("/images/image_add.png");}

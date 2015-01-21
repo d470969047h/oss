@@ -1,0 +1,205 @@
+{"roleID": "002", "success": true, "treeNode": {
+    "children": [
+        {
+            "children": [
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 1,
+                        "menuId": "001",
+                        "menuName": "供应商管理",
+                        "sortId": "017",
+                        "state": true,
+                        "tag": "supplier",
+                        "url": "shinow.oss.supplier"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 7,
+                        "menuId": "007",
+                        "menuName": "库存信息查看",
+                        "sortId": "017",
+                        "state": true,
+                        "tag": "stockInfoGrid",
+                        "url": "shinow.oss.StockInfo"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 8,
+                        "menuId": "008",
+                        "menuName": "库存商品分析",
+                        "sortId": "017",
+                        "state": true,
+                        "tag": "StoMerAnalysisTag",
+                        "url": "shinow.oss.StoMerAnalysis"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 9,
+                        "menuId": "009",
+                        "menuName": "促销状态字典维护",
+                        "sortId": "017",
+                        "state": true,
+                        "tag": "proStatus",
+                        "url": "shinow.oss.proStatus"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 10,
+                        "menuId": "010",
+                        "menuName": "商品类别字典维护",
+                        "sortId": "017",
+                        "state": true,
+                        "tag": "merchandiseC",
+                        "url": "shinow.oss.merchandiseClass"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 11,
+                        "menuId": "011",
+                        "menuName": "商品单位字典维护",
+                        "sortId": "017",
+                        "state": true,
+                        "tag": "unitInfoGrid",
+                        "url": "shinow.oss.unitInfo"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 12,
+                        "menuId": "012",
+                        "menuName": "商品信息字典维护",
+                        "sortId": "017",
+                        "state": true,
+                        "tag": "merchandiseInfoGrid",
+                        "url": "shinow.oss.merchandiseInfo"
+                    }
+                }
+            ],
+            "leaf": false,
+            "menuInfoEntity": {
+                "checked": false,
+                "id": 17,
+                "menuId": "017",
+                "menuName": "商品管理",
+                "sortId": "0",
+                "state": true,
+                "tag": "merManage",
+                "url": "shinow.oss.merManage"
+            }
+        },
+        {
+            "children": [
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 2,
+                        "menuId": "002",
+                        "menuName": "商品入库",
+                        "sortId": "018",
+                        "state": true,
+                        "tag": "inStockGrid",
+                        "url": "shinow.oss.inStock"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 23,
+                        "menuId": "021",
+                        "menuName": "商品入库查询",
+                        "sortId": "018",
+                        "state": true,
+                        "tag": "inStockQueryGrid",
+                        "url": "shinow.oss.inStockQuery"
+                    }
+                }
+            ],
+            "leaf": false,
+            "menuInfoEntity": {
+                "checked": false,
+                "id": 18,
+                "menuId": "018",
+                "menuName": "入库管理",
+                "sortId": "0",
+                "state": true,
+                "tag": "inStockManage",
+                "url": "shinow.oss.inStockManage"
+            }
+        },
+        {
+            "children": [
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 6,
+                        "menuId": "006",
+                        "menuName": "商品出库",
+                        "sortId": "019",
+                        "state": true,
+                        "tag": "outStockGrid",
+                        "url": "shinow.oss.outStock"
+                    }
+                },
+                {
+                    "children": [],
+                    "leaf": true,
+                    "menuInfoEntity": {
+                        "checked": false,
+                        "id": 24,
+                        "menuId": "022",
+                        "menuName": "商品出库查询",
+                        "sortId": "019",
+                        "state": true,
+                        "tag": "outStockQueryGrid",
+                        "url": "shinow.oss.outStockQuery"
+                    }
+                }
+            ],
+            "leaf": false,
+            "menuInfoEntity": {
+                "checked": false,
+                "id": 20,
+                "menuId": "019",
+                "menuName": "出库管理",
+                "sortId": "0",
+                "state": true,
+                "tag": "outStockManage",
+                "url": "shinow.oss.outStockManage"
+            }
+        }
+    ],
+    "leaf": false,
+    "menuInfoEntity": null
+}}
